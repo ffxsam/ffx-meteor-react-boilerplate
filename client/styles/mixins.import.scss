@@ -1,0 +1,109 @@
+@mixin font-smoothing($enabled) {
+  @if $enabled {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  } @else {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
+}
+
+@mixin disable-text-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin style-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Safari 8 and iOS 8 support (probably wise)
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  transform: $args;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($args) {
+  -webkit-animation: $args;
+  animation: $args;
+}
+
+// Flexbox support, just for the latest browsers
+@mixin display-flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+}
+
+@mixin justify-content($position: flex-start) {
+  justify-content: $position;
+  -webkit-justify-content: $position;
+  -ms-flex-pack: $position;
+}
+
+@mixin align-items($position: stretch) {
+  align-items: $position;
+  -webkit-align-items: $position;
+  -ms-flex-align: $position;
+}
+
+@mixin align-content($packed: stretch) {
+  align-content: $packed;
+  -webkit-align-content: $packed;
+}
+
+@mixin align-self($alignment) {
+  align-self: $alignment;
+  -webkit-align-self: $alignment;
+}
+
+@mixin flex($size) {
+  flex: $size;
+  -webkit-flex: $size;
+}
+
+@mixin flex-direction($direction: row) {
+  flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap: nowrap) {
+  flex-wrap: $wrap;
+  -webkit-flex-wrap: $wrap;
+}
+
+@mixin flex-flow($direction: row, $wrap: nowrap) {
+  flex-flow: $direction $wrap;
+  -webkit-flex-flow: $direction $wrap;
+}
+
+@mixin order($order) {
+  order: $order;
+  -webkit-order: $order;
+}

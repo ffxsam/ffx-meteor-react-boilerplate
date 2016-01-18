@@ -1,0 +1,20 @@
+{
+  "name": "ffx-meteor-boilerplate",
+  "version": "1.0.0",
+  "description": "Meteor 1.3 boilerplate",
+  "scripts": {
+    "preinstall": "echo \"Meteor boilerplate...ENGAGE!\"",
+    "postinstall": "/bin/sh ./.scripts/postinstall.sh",
+    "example": "git checkout example"
+  },
+  "author": "ffxsam",
+  "license": "MIT",
+  "dependencies": {
+    "material-ui": "0.14.x",
+    "materialize-css": "0.x",
+    "react": "0.14.x",
+    "react-dom": "0.14.x",
+    "react-mounter": "1.x",
+    "react-tap-event-plugin": "0.x"
+  }
+}
