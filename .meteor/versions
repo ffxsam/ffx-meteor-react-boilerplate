@@ -71,6 +71,8 @@ templating-tools@1.0.1-modules.4
 tracker@1.0.10-modules.4
 ui@1.0.8
 underscore@1.0.5-modules.4
+universe:i18n@1.3.2
+universe:utilities@2.1.0
 url@1.0.6-modules.4
 webapp@1.2.4-modules.4
 webapp-hashing@1.0.6-modules.4
