@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 /*
  * This is a stateless function or stateless component. It's a type of React
@@ -10,6 +11,9 @@ import React, {PropTypes} from 'react';
  * default, but I include it for clarity's sake, and so WebStorm can trace back
  * to it when I
  */
+
+injectTapEventPlugin(); // like FastClick
+
 export default MainLayout = ({content}) => {
   /*
    * The above {syntax} is called destructuring, it's a JavaScript ES6 feature.

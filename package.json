@@ -6,11 +6,7 @@
     "preinstall": "echo \"Meteor boilerplate...ENGAGE!\"",
     "postinstall": "/bin/sh ./.scripts/postinstall.sh",
     "example": "git checkout example",
-    "scaffold": "/bin/sh ./.scripts/scaffold.sh",
-    "test": "jest"
-  },
-  "jest": {
-    "testDirectoryName": ".tests"
+    "scaffold": "/bin/sh ./.scripts/scaffold.sh"
   },
   "author": "ffxsam",
   "license": "MIT",

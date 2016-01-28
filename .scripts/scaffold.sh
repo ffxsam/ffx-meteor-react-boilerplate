@@ -1,3 +1,3 @@
 #!/bin/sh
-git checkout master
+git checkout -f master
 rm -rf .git README.md
