@@ -1,6 +1,0 @@
-sidebar:
-  title: "Saved Colors"
-  instructions: "Click swatch to change background color."
-
-setter:
-  saveButton: "Save"
