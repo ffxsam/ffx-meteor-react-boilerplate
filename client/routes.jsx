@@ -10,7 +10,7 @@
  * follow them to lead you through the code in a way that makes sense.
  *
  * If you have any questions, please open a new issue on GitHub:
- * TODO: enter this URL
+ * https://github.com/ffxsam/ffx-meteor-react-boilerplate/issues
  */
 
 // Meteor 1.3 introduces ES6 module support, so we get to use import/export!
