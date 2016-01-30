@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "echo \"Meteor boilerplate...ENGAGE!\"",
     "postinstall": "/bin/sh ./.scripts/postinstall.sh",
-    "example": "git checkout example",
+    "example": "echo \"When you're done with the example app, run 'git checkout -f master' to return to the boilerplate.\"; git checkout example",
     "scaffold": "/bin/sh ./.scripts/scaffold.sh"
   },
   "author": "ffxsam",
