@@ -48,8 +48,8 @@ AppState.set({
  * This is where something like Redux might be more useful. Or you could give
  * the meteorflux:meteorflux package a try. Either of those might be better
  * suited for a more complex app. I'd recommend meteorflux:meteorflux since it
- * was built to work specifically with Meteor. Note that the boilerplate in
- * this repo does use meteorflux.
+ * was built to work specifically with Meteor and is probably simpler to grasp.
+ * Note that the boilerplate in this repo does use meteorflux.
  *
  * Learn more about meteorflux: https://github.com/worona/meteorflux
  */
