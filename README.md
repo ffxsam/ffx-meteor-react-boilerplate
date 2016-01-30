@@ -5,8 +5,9 @@
 
 The goal of this boilerplate is twofold:
 
-1. To provide a good starting point as a scaffold for new Meteor/React projects
-(obviously).
+1. To provide a good starting point as a scaffold for new Meteor/React projects.
+This boilerplate will continue to evolve as Meteor and React continue to change
+and mature.
 2. To also serve as a learning resource by offering an example project.
 
 ## Installation
@@ -38,3 +39,5 @@ which will switch back to the `master` branch (pure boilerplate) and remove the
 Explanations can be found in the comments of the code, so check there. Your
 starting point should be `/client/routes.jsx`. From that point, comments will
 guide you through the rest of the application.
+
+If you have any questions, please create an issue in GitHub. Thanks!
