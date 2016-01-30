@@ -1,5 +1,4 @@
 #!/bin/sh
-echo "Cleaning up unneeded files and creating folder structure...\c"
 echo "Doing the following:"
 echo
 echo "1. Removing unnecessary files/folders"
