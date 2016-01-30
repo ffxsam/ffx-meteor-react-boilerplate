@@ -11,7 +11,7 @@ rm -rf .git README.md
 # Set up folder structure
 mkdir -p lib/collections
 
-cat package.json | sed '5,10d' | sed "s/ffx-meteor-react-boilerplate/$USER-project/" | sed 's/1.0.0/0.1.0/' | sed "s/ffxsam/$USER/" | sed 's/Meteor 1.3 + React boilerplate/Description here/' > package.new.json
+cat package.json | sed '5,11d' | sed "s/ffx-meteor-react-boilerplate/$USER-project/" | sed 's/1.0.0/0.1.0/' | sed "s/ffxsam/$USER/" | sed 's/Meteor 1.3 + React boilerplate/Description here/' > package.new.json
 mv package.new.json package.json
 
 echo
