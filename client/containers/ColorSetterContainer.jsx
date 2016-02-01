@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {ReactMeteorData} from 'meteor/react-meteor-data';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {_i18n as i18n} from 'meteor/universe:i18n';
 import AppState from '../appstate/state';
 import ColorSetter from '../components/ColorSetter.jsx';
@@ -70,9 +69,7 @@ export default ColorSetterContainer = React.createClass({
    * For more on React lifecycle methods, see:
    * https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
    */
-  mixins: [ReactMeteorData, PureRenderMixin],
-  // Read more about PureRenderMixin here:
-  // https://facebook.github.io/react/docs/pure-render-mixin.html
+  mixins: [ReactMeteorData],
 
   /*
    * getMeteorData() is a special method defined in the ReactMeteorData mixin.
