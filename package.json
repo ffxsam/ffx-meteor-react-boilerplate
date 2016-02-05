@@ -9,11 +9,12 @@
   "license": "MIT",
   "private": "true",
   "dependencies": {
-    "invariant": "2.x",
-    "react": "0.14.x",
-    "react-addons-test-utils": "0.14.x",
-    "react-dom": "0.14.x",
-    "react-mounter": "1.x",
-    "react-tap-event-plugin": "0.x"
+    "invariant": "^2.2.0",
+    "react": "~0.14.7",
+    "react-addons-test-utils": "~0.14.7",
+    "react-dom": "~0.14.7",
+    "react-mixin": "^3.0.3",
+    "react-mounter": "^1.0.0",
+    "react-tap-event-plugin": "^0.2.2"
   }
 }
