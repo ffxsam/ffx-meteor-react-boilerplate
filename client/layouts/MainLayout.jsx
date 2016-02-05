@@ -8,8 +8,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
  * See https://facebook.github.io/react/docs/reusable-components.html#stateless-functions
  *
  * Technically the name MainLayout isn't needed here since it's an export
- * default, but I include it for clarity's sake, and so WebStorm can trace back
- * to it when I
+ * default, but I include it so WebStorm can trace back to it when I cmd-click
+ * on any references to MainLayout. Plus, code clarity.
  */
 
 injectTapEventPlugin(); // like FastClick

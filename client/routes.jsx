@@ -18,6 +18,7 @@
 import React from 'react';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {mount} from 'react-mounter';
+import MainLayout from './layouts/MainLayout.jsx';
 
 /*
  * At its most basic usage, FlowRouter simply specifies a path and an action

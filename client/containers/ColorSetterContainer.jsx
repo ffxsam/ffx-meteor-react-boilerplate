@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import {ReactMeteorData} from 'meteor/react-meteor-data';
 import {_i18n as i18n} from 'meteor/universe:i18n';
+
 import AppState from '../appstate/state';
 import ColorSetter from '../components/ColorSetter.jsx';
 import actions from '../appstate/actions';
+import {saveColor} from '../../lib/methods';
 
 /*
  * We're defining styles a bit differently than you might be used to (in a
@@ -50,13 +52,15 @@ const styles = {
  * and propTypes can be defined inside the class. It can also contain custom
  * methods that you define to take certain actions. More on that below.
  *
- * Also of utmost importance to note: this is a container. A container component
- * is one that is aware of (and manages) state, data, and actions. Think of it
- * as a parent controller that tells children ("dumb," stateless components)
- * what to render.
+ * This is a "container" component, which is a component that is aware of (and
+ * manages) state, data, and actions. Think of it as a parent controller that
+ * tells children ("dumb," stateless components) what to render.
  *
  * You can see more about containers here: https://youtu.be/KYzlpRvWZ6c?t=22m49s
  */
+
+// TODO: Replace with ES6 class
+
 export default ColorSetterContainer = React.createClass({
   /*
    * A mixin is a sort of "include." It's very similar to Sass mixins. So
@@ -112,9 +116,10 @@ export default ColorSetterContainer = React.createClass({
 
   saveCurrentColor() {
     // Call a Meteor method on the server called saveColor; more later on that
-    Meteor.call('saveColor', this.data.color, (error, result) => {
+    Methods.saveColor.call(this.data.color, (error, result) => {
       if (error) {
-        alert('Something went horrifically wrong.');
+        alert('Something went horrifically wrong. Check the JS console.');
+        console.log(error);
       }
     });
   },

@@ -1,3 +1,5 @@
+import {Colors} from '../lib/collections/colors';
+
 /*
  * Meteor.publish dictates to the client what data is available to them, for
  * both reasons of security and bandwidth. In the case below, we're publishing

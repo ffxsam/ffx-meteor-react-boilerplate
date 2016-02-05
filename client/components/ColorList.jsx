@@ -64,7 +64,7 @@ export default ColorList = ({colors}) => {
          * I won't get into the specifics as to why (it's a bit technical), but
          * you should pass a unique value. And *don't* use an index/counter!
          */
-        return <li key={color._id}>
+        return <li style={{opacity: color.saving ? 0.5 : 1}} key={color._id}>
           {hexColor}
           <div
             style={{
