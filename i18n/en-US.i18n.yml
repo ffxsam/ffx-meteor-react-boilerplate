@@ -1,0 +1,7 @@
+category:
+  someLabel: "OK"
+  greeting: "Hello, {$name}."
+
+longText: >
+  A whole paragraph of text here.
+  Multi-line no problem.
