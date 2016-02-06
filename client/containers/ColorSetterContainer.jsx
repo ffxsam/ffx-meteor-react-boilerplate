@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {ReactMeteorData} from 'meteor/react-meteor-data';
 import {_i18n as i18n} from 'meteor/universe:i18n';
+import reactMixin from 'react-mixin';
 
 import AppState from '../appstate/state';
 import ColorSetter from '../components/ColorSetter.jsx';
 import actions from '../appstate/actions';
-import {saveColor} from '../../lib/methods';
 
 /*
  * We're defining styles a bit differently than you might be used to (in a
@@ -59,22 +59,7 @@ const styles = {
  * You can see more about containers here: https://youtu.be/KYzlpRvWZ6c?t=22m49s
  */
 
-// TODO: Replace with ES6 class
-
-export default ColorSetterContainer = React.createClass({
-  /*
-   * A mixin is a sort of "include." It's very similar to Sass mixins. So
-   * in this particular case, if you were to look at the source code for the
-   * ReactMeteorData mixin, it's just an object that contains typical React
-   * lifecycle methods (componentDidMount etc). Including the mixin here will
-   * ensure that ReactMeteorData's lifecycle methods are executed alongside
-   * the ones defined below.
-   *
-   * For more on React lifecycle methods, see:
-   * https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
-   */
-  mixins: [ReactMeteorData],
-
+export default class ColorSetterContainer extends Component {
   /*
    * getMeteorData() is a special method defined in the ReactMeteorData mixin.
    * It's where Mongo collections and any other reactive data sources should be
@@ -102,7 +87,7 @@ export default ColorSetterContainer = React.createClass({
       color: AppState.get('color'),
       savedColors: Colors.find({}, {sort: {createdAt: 1}}).fetch()
     }
-  },
+  }
 
   /*
    * colorChange() and saveCurrentColor() are my own methods I've created.
@@ -112,7 +97,7 @@ export default ColorSetterContainer = React.createClass({
    */
   colorChange(colorName, value) {
     actions.changeColorBy(colorName, value);
-  },
+  }
 
   saveCurrentColor() {
     // Call a Meteor method on the server called saveColor; more later on that
@@ -122,7 +107,7 @@ export default ColorSetterContainer = React.createClass({
         console.log(error);
       }
     });
-  },
+  }
 
   /*
    * render() is the the lifecycle method in charge of (drumroll..) rendering
@@ -159,10 +144,10 @@ export default ColorSetterContainer = React.createClass({
      */
     return <div ref="container" style={styles.colorContainer}>
       {/*
-        * Render the ColorList component and pass a prop "colors" which is
-        * this.data.savedColors, containing the results of the Colors.find()
-        * from above in getMeteorData().
-        */}
+       * Render the ColorList component and pass a prop "colors" which is
+       * this.data.savedColors, containing the results of the Colors.find()
+       * from above in getMeteorData().
+       */}
       <ColorList colors={this.data.savedColors} />
 
       <div style={styles.box}>
@@ -179,13 +164,37 @@ export default ColorSetterContainer = React.createClass({
         <ColorSetter colorName="B" value={B} onValueChange={this.colorChange} />
 
         <div style={{paddingTop: '2em', textAlign: 'center'}}>
-          <button onClick={this.saveCurrentColor}>
+          <button onClick={this.saveCurrentColor.bind(this) /* see below */}>
             {i18n.__('setter.saveButton')}
           </button>
         </div>
       </div>
     </div>
   }
-})
+}
+
+/*
+ * What's up with the onClick event above? Why not just:
+ *
+ * <button onClick={this.saveCurrentColor}>
+ *
+ * Since we're using ES6 classes, the 'this' object will only refer to
+ * ColorSetterContainer within React's lifecycle methods. Custom methods you
+ * create will not have access to the React component unless you set the context
+ * with JavaScript's bind method.
+ */
+
+/*
+ * A mixin is a sort of "include." It's very similar to Sass mixins. So
+ * in this particular case, if you were to look at the source code for the
+ * ReactMeteorData mixin, it's just an object that contains typical React
+ * lifecycle methods (componentDidMount etc). Including the mixin here will
+ * ensure that ReactMeteorData's lifecycle methods are executed alongside
+ * the ones defined below.
+ *
+ * For more on React lifecycle methods, see:
+ * https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
+ */
+reactMixin(ColorSetterContainer.prototype, ReactMeteorData);
 
 // Let's take a detour and head over to /client/appstate/actions.js
