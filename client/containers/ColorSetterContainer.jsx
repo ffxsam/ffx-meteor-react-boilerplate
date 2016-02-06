@@ -6,6 +6,7 @@ import reactMixin from 'react-mixin';
 import AppState from '../appstate/state';
 import ColorSetter from '../components/ColorSetter.jsx';
 import actions from '../appstate/actions';
+import {saveColor} from '/lib/methods';
 
 /*
  * We're defining styles a bit differently than you might be used to (in a
@@ -101,7 +102,7 @@ export default class ColorSetterContainer extends Component {
 
   saveCurrentColor() {
     // Call a Meteor method on the server called saveColor; more later on that
-    Methods.saveColor.call(this.data.color, (error, result) => {
+    saveColor.call(this.data.color, (error, result) => {
       if (error) {
         alert('Something went horrifically wrong. Check the JS console.');
         console.log(error);
