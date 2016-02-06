@@ -18,6 +18,7 @@
     "react-addons-pure-render-mixin": "~0.14.7",
     "react-addons-test-utils": "~0.14.7",
     "react-dom": "~0.14.7",
+    "react-mixin": "^3.0.3",
     "react-mounter": "^1.0.0",
     "react-tap-event-plugin": "^0.2.2"
   }
