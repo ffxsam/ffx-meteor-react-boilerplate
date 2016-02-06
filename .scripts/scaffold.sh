@@ -6,7 +6,7 @@ echo "2. meteor reset (wipes out .meteor/local)"
 echo "3. Creating empty folder structure (lib/collections, etc)"
 echo "4. Rewriting package.json"
 
-rm -rf .git README.md
+rm -rf .git README.md .scripts
 meteor reset
 
 # Set up folder structure
