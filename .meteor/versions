@@ -57,6 +57,7 @@ lai:ddp-inspector@1.1.9
 launch-screen@1.0.5-modules.8
 livedata@1.0.15
 logging@1.0.9-modules.8
+mdg:validated-method@1.0.1
 meteor@1.1.11-modules.8
 meteor-base@1.0.1
 meteor-env-dev@0.0.1-modules.8

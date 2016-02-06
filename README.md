@@ -41,4 +41,10 @@ Explanations can be found in the comments of the code, so check there. Your
 starting point should be `/client/routes.jsx`. From that point, comments will
 guide you through the rest of the application.
 
+## Future Ideas
+
+As I work on projects, I'll keep exploring the idea of putting all features into
+their own respective folders, and so this boilerplate will likely change as I
+discover better ways to structure things.
+
 If you have any questions, please create an issue in GitHub. Thanks!
