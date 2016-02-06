@@ -5,6 +5,7 @@ echo "1. Removing unnecessary files/folders"
 echo "2. meteor reset (wipes out .meteor/local)"
 echo "3. Creating empty folder structure (lib/collections, etc)"
 echo "4. Rewriting package.json"
+echo
 
 rm -rf .git README.md .scripts
 meteor reset
