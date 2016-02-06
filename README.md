@@ -25,14 +25,15 @@ comments), run:
     $ npm run example
 
 Your starting point for the code walkthrough should start at /client/routes.jsx.
-The code is heavily commented and will guide you through the entire app.
+The code is heavily commented and will guide you through the entire app. Use
+`npm run exit` to get out of the example (same as `git checkout -f master`).
 
-Once you're ready to get started with your own project, run:
+Once you're ready to get started with your own project, make sure you're in the
+master branch and run:
 
     $ npm run scaffold
 
-which will switch back to the `master` branch (pure boilerplate) and remove the
-`.git` folder and this `README.md`.
+which will remove the `.git` folder and this `README.md`.
 
 ## Exploring the Example Project
 
