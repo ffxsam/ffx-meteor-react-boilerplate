@@ -11,9 +11,11 @@ rm -rf .git README.md .scripts
 meteor reset
 
 # Set up folder structure
-mkdir -p client/components features/SomeFeature/client/components \
+mkdir -p client/components \
+  features/SomeFeature/client/components \
   features/SomeFeature/client/containers \
   features/SomeFeature/server
+touch server/publications.js
 
 cat package.json | sed '5,11d' | \
   sed "s/ffx-meteor-react-boilerplate/$USER-project/" | \
