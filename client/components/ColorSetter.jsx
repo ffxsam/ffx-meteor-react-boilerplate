@@ -74,7 +74,7 @@ ColorSetter.propTypes = {
 
 /*
  * At this point, we're gone through the layout, home page, ColorSetterContainer
- * and its children. We've also covered AppState. Let's take a look at the
+ * and its children. We've also covered Redux. Let's take a look at the
  * Colors collection that stores the color swatches that we save.
  * Open up /lib/collections/colors.js
  */
