@@ -2,11 +2,15 @@ import React, {Component, PropTypes} from 'react';
 import {ReactMeteorData} from 'meteor/react-meteor-data';
 import {_i18n as i18n} from 'meteor/universe:i18n';
 import reactMixin from 'react-mixin';
+import {connect} from 'react-redux';
+import _ from 'lodash';
 
-import AppState from '../appstate/state';
 import ColorSetter from '../components/ColorSetter.jsx';
-import actions from '../appstate/actions';
-import {saveColor} from '/lib/methods';
+import {
+  userModifiedColor,
+  userSavedColor,
+  userChoseColor,
+} from '../actions/colors';
 
 /*
  * We're defining styles a bit differently than you might be used to (in a
@@ -60,7 +64,7 @@ const styles = {
  * You can see more about containers here: https://youtu.be/KYzlpRvWZ6c?t=22m49s
  */
 
-export default class ColorSetterContainer extends Component {
+class ColorSetterContainer extends Component {
   /*
    * getMeteorData() is a special method defined in the ReactMeteorData mixin.
    * It's where Mongo collections and any other reactive data sources should be
@@ -85,29 +89,77 @@ export default class ColorSetterContainer extends Component {
      */
     return {
       ready: handle.ready(),
-      color: AppState.get('color'),
-      savedColors: Colors.find({}, {sort: {createdAt: 1}}).fetch()
+      savedColors: Colors.find({}, {sort: {createdAt: 1}}).fetch(),
+    }
+  }
+
+  /*
+   * This lifecycle method will fire off when new props are sent to this
+   * component.
+   */
+  componentWillReceiveProps(nextProps) {
+    /*
+     * Back to our wooden statue analogy. This is where things will actually
+     * happen in the UI. Remember that our worker (reducer) is only concerned
+     * about the state of the statue. It's this container component's job to
+     * react to that and visually do something.
+     *
+     * So the worker paints the statue yellow, and you walk up to the worker and
+     * say, "The king hates the color yellow, you'd better put up a curtain
+     * around your work area so he doesn't see it." The worker would just reply,
+     * "Hey, I don't do that. I'm just in charge of changing how this thing
+     * looks."
+     *
+     * Being an adept engineer, you build a machine that that gazes at the
+     * statue constantly, and whenever the statue is yellow, your machine lowers
+     * a curtain over the statue so the king doesn't see it and decide to
+     * start beheading people!
+     *
+     * ColorSetterContainer is that machine. It's aware of the entire Redux
+     * state, and will re-render when the props passed to it (via the connect
+     * function) change. If you need to perform some sort of business logic when
+     * the Redux state changes (render is not the place for that), you can do so
+     * in componentWillReceiveProps.
+     */
+    if (nextProps.errorReason) {
+      alert('Error! ' + JSON.stringify(nextProps.errorReason, null, 2));
     }
   }
 
   /*
    * colorChange() and saveCurrentColor() are my own methods I've created.
    * React's lifecycle methods can access these via this.colorChange and
-   * this.saveCurrentColor. We'll cover the "actions" bit later, so don't
-   * worry about that right now.
+   * this.saveCurrentColor.
    */
-  colorChange(colorName, value) {
-    actions.changeColorBy(colorName, value);
+  colorChange(colorName, changeBy) {
+    /*
+     * Redux's connect function (bottom of this file) gives us the dispatch prop
+     * so we can dispatch actions. Time to use it! Remember that
+     * userModifiedColor is an action creator, and simply returns an object that
+     * looks like this:
+     *
+     *   {
+     *     type: USER_MODIFIED_COLOR,
+     *     colorName: colorName,
+     *     changeBy: changeBy,
+     *   }
+     */
+    this.props.dispatch(userModifiedColor(colorName, changeBy));
   }
 
   saveCurrentColor() {
-    // Call a Meteor method on the server called saveColor; more later on that
-    saveColor.call(this.data.color, (error, result) => {
-      if (error) {
-        alert('Something went horrifically wrong. Check the JS console.');
-        console.log(error);
-      }
-    });
+    // Dispatch the USER_SAVED_COLOR action, and pass the color object
+    this.props.dispatch(userSavedColor(this.props.color));
+  }
+
+  saveInvalidColor() {
+    // Intentionally try to save an invalid color value
+    this.props.dispatch(userSavedColor({Rvalue: 100, Gvalue: 0, Bvalue: 300}));
+  }
+
+  chooseColor(color) {
+    // User clicked a color on the left sidebar
+    this.props.dispatch(userChoseColor(color));
   }
 
   /*
@@ -119,37 +171,25 @@ export default class ColorSetterContainer extends Component {
      * This format below is called destructuring.
      * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
      *
-     * Remember, this.data.color is coming from AppState.get('color') returned
-     * from getMeteorData() above. When AppState.set('color', ...) is called,
-     * it will in turn cause getMeteorData() to fire, which will cause render()
-     * to fire as well.
+     * this.props.color (below) is a prop being passed in by the Redux connect
+     * function which you can find at the bottom of this file.
      */
-    const {R, G, B} = this.data.color;
+    const {Rvalue, Gvalue, Bvalue} = this.props.color;
+    const containerStyle = {
+      ...styles.colorContainer,
+      backgroundColor: `rgb(${Rvalue}, ${Gvalue}, ${Bvalue})`,
+    };
 
-    /*
-     * Must check for this.refs.container, because as we're rendering, there's
-     * a brief point in time where it actually doesn't exist.
-     */
-    if (this.refs.container) {
-      /*
-       * Template strings in ES6 rock! Learn more:
-       * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings
-       */
-      this.refs.container.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
-    }
-
-    /*
-     * "ref" is a special attribute you can put in JSX tags so your React
-     * component can reference them elsewhere. In regular HTML/JS, you might
-     * use document.querySelector, or jQuery selectors to locate DOM elements.
-     */
-    return <div ref="container" style={styles.colorContainer}>
+    return <div style={containerStyle}>
       {/*
        * Render the ColorList component and pass a prop "colors" which is
        * this.data.savedColors, containing the results of the Colors.find()
        * from above in getMeteorData().
        */}
-      <ColorList colors={this.data.savedColors} />
+      <ColorList
+        colors={this.data.savedColors}
+        onChooseColor={this.chooseColor.bind(this)}
+      />
 
       <div style={styles.box}>
         {/*
@@ -160,13 +200,29 @@ export default class ColorSetterContainer extends Component {
          * the colorChange() method into it, so that ColorSetter has access
          * to that method and can make calls to it.
          */}
-        <ColorSetter colorName="R" value={R} onValueChange={this.colorChange} />
-        <ColorSetter colorName="G" value={G} onValueChange={this.colorChange} />
-        <ColorSetter colorName="B" value={B} onValueChange={this.colorChange} />
+        <ColorSetter
+          colorName="R"
+          value={Rvalue}
+          onValueChange={this.colorChange.bind(this)}
+        />
+        <ColorSetter
+          colorName="G"
+          value={Gvalue}
+          onValueChange={this.colorChange.bind(this)}
+        />
+        <ColorSetter
+          colorName="B"
+          value={Bvalue}
+          onValueChange={this.colorChange.bind(this)}
+        />
 
         <div style={{paddingTop: '2em', textAlign: 'center'}}>
           <button onClick={this.saveCurrentColor.bind(this) /* see below */}>
             {i18n.__('setter.saveButton')}
+          </button>
+
+          <button onClick={this.saveInvalidColor.bind(this)}>
+            {i18n.__('setter.badButton')}
           </button>
         </div>
       </div>
@@ -198,4 +254,88 @@ export default class ColorSetterContainer extends Component {
  */
 reactMixin(ColorSetterContainer.prototype, ReactMeteorData);
 
-// Let's take a detour and head over to /client/appstate/actions.js
+/*
+ * More Redux stuff. So, our ColorSetterContainer needs to be aware of the Redux
+ * store so it can access state, and dispatch actions. That's done by mapping
+ * the Redux state to props, that we send into ColorSetterContainer. Here's how:
+ */
+
+function mapStateToProps({colors}) {
+  /*
+   * Once again note the destructuring above. It's the same as just grabbing
+   * the colors property off the state object which is mapStateToProps' first
+   * parameter.
+   */
+  return {
+    /*
+     * This state argument is the entire app's state, so we have to be sure to
+     * just reference the reducer that we're interested in. In this case, it's
+     * colors.
+     */
+    color: _.omit(colors, 'errorReason'), // we want the error separate
+    errorReason: colors.errorReason,
+
+    /*
+     * Remember this, from /client/reducers/colors.js?
+     *
+     * const initialState = {
+     *   Rvalue: 255,
+     *   Gvalue: 255,
+     *   Bvalue: 255,
+     *   errorReason: null,
+     * };
+     *
+     * Just to drive this point home: with mapStateToProps, we're accessing
+     * this state (state.colors) and mapping it to a set of props that will be
+     * passed into ColorSetterContainer. If we had another reducer, say
+     * /client/reducers/accounts.js, we could've easily accessed that here too:
+     *
+     * function mapStateToProps({colors, accounts}) { ... }
+     */
+  }
+}
+
+export default connect(mapStateToProps)(ColorSetterContainer)
+/*
+ * And now thanks to connect, we've just passed the color and errorReason props
+ * above into ColorSetterContainer. Essentially we now have:
+ *
+ *   <ColorSetterContainer
+ *     color={_.omit(state.colors, 'errorReason')}
+ *     errorReason={state.colors.errorReason}
+ *     ...otherProps
+ *   />
+ *
+ * connect also passes in a dispatch prop so the component can dispatch Redux
+ * actions. So actually, we've done:
+ *
+ *   <ColorSetterContainer
+ *     color={_.omit(state.colors, 'errorReason')}
+ *     errorReason={state.colors.errorReason}
+ *     dispatch={store.dispatch}
+ *     ...otherProps
+ *   />
+ */
+
+/*
+ * A quick recap of Redux:
+ *
+ * Dispatch an action (which may/may not have side effects)
+ *        |
+ *        |
+ *        V
+ * All reducers hear it
+ *        |
+ *        |
+ *        V
+ * A single reducer chooses to react to this action
+ * Reducer returns a new state
+ *        |
+ *        |
+ *        V
+ * Any React components that are listening to that particular part of the state
+ * via mapStateToProps/connect will know about the new state and will receive
+ * that via props
+ */
+
+// Now open up /client/components/ColorList.jsx

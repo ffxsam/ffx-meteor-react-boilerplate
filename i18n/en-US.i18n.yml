@@ -4,3 +4,4 @@ sidebar:
 
 setter:
   saveButton: "Save"
+  badButton: "Save An Invalid Color"

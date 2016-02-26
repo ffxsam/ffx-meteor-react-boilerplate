@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {_i18n as i18n} from 'meteor/universe:i18n';
-import actions from '../appstate/actions';
 
 const styles = {
   colorList: {
@@ -22,19 +21,6 @@ const styles = {
 };
 
 /*
- * Since ColorList (below) is a stateless function, I'm keeping any functions
- * it may need to call outside of it.
- */
-function chooseColor(color) {
-  /*
-   * When the user chooses a color from the list, set that choice in the
-   * global app state via this action. Check /client/appstate/actions.js if you
-   * want to take another look at setColor().
-   */
-  actions.setColor(color);
-}
-
-/*
  * Below you'll notice the use of a function i18n.__(). This is using the
  * Meteor package universe:i18n for internationalization (whew, now you see
  * why they call it i18n!). I consider it good practice to use i18n even if
@@ -44,7 +30,7 @@ function chooseColor(color) {
  * add extra languages down the road, it will make your life a lot easier.
  */
 
-export default ColorList = ({colors}) => {
+export default ColorList = ({colors, onChooseColor}) => {
   return <div style={styles.colorList}>
     <h1>{i18n.__('sidebar.title')}</h1>
     <p>
@@ -53,9 +39,9 @@ export default ColorList = ({colors}) => {
 
     <ul>
       {colors.map(function (color) {
-        const hexR = ('00' + color.R.toString(16)).slice(-2);
-        const hexG = ('00' + color.G.toString(16)).slice(-2);
-        const hexB = ('00' + color.B.toString(16)).slice(-2);
+        const hexR = ('00' + color.Rvalue.toString(16)).slice(-2);
+        const hexG = ('00' + color.Gvalue.toString(16)).slice(-2);
+        const hexB = ('00' + color.Bvalue.toString(16)).slice(-2);
         const hexColor = `#${hexR}${hexG}${hexB}`;
 
         /*
@@ -76,20 +62,20 @@ export default ColorList = ({colors}) => {
             }}
             onClick={
               /*
-               * When the user clicks the color swatch, call chooseColor() and
+               * When the user clicks the color swatch, call onChooseColor() and
                * pass the color. Note the .getColor() method, we'll cover that
                * later.
                *
                * We also could've written this as:
-               * onClick={chooseColor.bind(null, color.getColor())}
+               * onClick={onChooseColor.bind(null, color.getColor())}
                *
                * We couldn't have done this:
-               * onClick={chooseColor(color.getColor())}
+               * onClick={onChooseColor(color.getColor())}
                *
-               * because it would actually call chooseColor() immediately, not
+               * because it would actually call onChooseColor() immediately, not
                * when the user clicks.
                */
-              () => chooseColor(color.getColor())
+              () => onChooseColor(color.getColor())
              }
           ></div>
         </li>
@@ -99,8 +85,8 @@ export default ColorList = ({colors}) => {
 }
 
 ColorList.propTypes = {
-  colors: PropTypes.array.isRequired
+  colors: PropTypes.array.isRequired,
+  onChooseColor: PropTypes.func.isRequired,
 };
-ColorList.displayName = 'ColorList';
 
 // Now open up /client/components/ColorSetter.jsx

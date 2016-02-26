@@ -18,7 +18,11 @@
 import React from 'react';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {mount} from 'react-mounter';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import MainLayout from './layouts/MainLayout.jsx';
+
+injectTapEventPlugin(); // like FastClick
 
 /*
  * At its most basic usage, FlowRouter simply specifies a path and an action

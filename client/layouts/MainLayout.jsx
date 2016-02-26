@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import {Provider} from 'react-redux';
+
+import store from '../store';
 
 /*
  * This is a stateless function or stateless component. It's a type of React
@@ -11,8 +13,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
  * default, but I include it so WebStorm can trace back to it when I cmd-click
  * on any references to MainLayout. Plus, code clarity.
  */
-
-injectTapEventPlugin(); // like FastClick
 
 export default MainLayout = ({content}) => {
   /*
@@ -28,7 +28,11 @@ export default MainLayout = ({content}) => {
 
   // We're still working in JavaScript at this point, by the way...
 
-  return <div>
+  /*
+   * Since we're using Redux, we have to wrap our content in <Provider />
+   * to make the Redux store available to it. More on that later though.
+   */
+  return <Provider store={store}>
     {/* Now this is JSX. All JavaScript must be wrapped in { }!
       *
       * Remember we passed the "content" prop as a function, so we have to
@@ -38,7 +42,7 @@ export default MainLayout = ({content}) => {
       * If you're familiar with Blaze, this is similar to {{> yield}}
       */}
     {content()}
-  </div>
+  </Provider>
 }
 
 /*
@@ -49,15 +53,6 @@ export default MainLayout = ({content}) => {
 MainLayout.propTypes = {
   content: PropTypes.func.isRequired
 };
-
-/*
- * This is not necessary unless you're using the React DevTools browser
- * extension. If you don't specify a displayName on a stateless component,
- * it will show up as "StatelessComponent" in the tree, which can make it
- * difficult to debug your application.
- * https://github.com/facebook/react-devtools (HIGHLY recommended!)
- */
-MainLayout.displayName = 'MainLayout';
 
 // Now head over to /client/pages/Home.jsx since that's what's being displayed
 // first

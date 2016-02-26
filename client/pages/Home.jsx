@@ -23,6 +23,5 @@ export default Home = (props) => {
 }
 
 Home.propTypes = {}; // placeholder
-Home.displayName = 'Home';
 
-// Go take a look at /client/containers/ColorSetterContainer.jsx
+// Go take a look at /client/store.js

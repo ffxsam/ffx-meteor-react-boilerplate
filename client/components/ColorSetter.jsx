@@ -71,7 +71,6 @@ ColorSetter.propTypes = {
   value: PropTypes.number.isRequired,
   onValueChange: PropTypes.func.isRequired
 };
-ColorSetter.displayName = 'ColorSetter';
 
 /*
  * At this point, we're gone through the layout, home page, ColorSetterContainer
