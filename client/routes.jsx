@@ -21,6 +21,7 @@ import {mount} from 'react-mounter';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import MainLayout from './layouts/MainLayout.jsx';
+import Home from './pages/Home.jsx';
 
 injectTapEventPlugin(); // like FastClick
 
