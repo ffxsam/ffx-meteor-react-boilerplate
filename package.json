@@ -11,7 +11,7 @@
   },
   "author": "ffxsam",
   "license": "MIT",
-  "private": "true",
+  "private": true,
   "dependencies": {
     "react": "~0.14.7",
     "react-addons-pure-render-mixin": "~0.14.7",
