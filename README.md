@@ -36,6 +36,9 @@ master branch and run:
 which will remove the `.git` folder and this `README.md`.
 
 ## Exploring the Example Project
+The example project shows all the basics of React, Redux and Thunks working 
+together with Meteor.  It's a separate branch of the project, so just switch 
+branch to see it.
 
 Explanations can be found in the comments of the code, so check there. Your
 starting point should be `/client/routes.jsx`. From that point, comments will
