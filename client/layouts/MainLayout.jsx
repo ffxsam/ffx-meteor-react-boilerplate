@@ -14,4 +14,3 @@ export default MainLayout = ({content}) => {
 MainLayout.propTypes = {
   content: PropTypes.func.isRequired
 };
-MainLayout.displayName = 'MainLayout';

@@ -7,4 +7,3 @@ export default Home = (props) => {
 }
 
 Home.propTypes = {}; // placeholder
-Home.displayName = 'Home';
