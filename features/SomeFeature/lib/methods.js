@@ -15,8 +15,3 @@ export const someMethod = new ValidatedMethod({
   run(args) {
   },
 });
-
-// Make stuff accessible in web console and meteor shell
-if (process.env.NODE_ENV === 'development') {
-  global.Methods = { someMethod };
-}
