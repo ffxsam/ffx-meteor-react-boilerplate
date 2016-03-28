@@ -1,4 +1,4 @@
-import {Meteor} from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(function () {
   // Insert default data, optionally

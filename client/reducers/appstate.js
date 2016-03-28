@@ -1,5 +1,5 @@
 const initialState = {
-  someValue: true
+  someValue: true,
 };
 
 export default function (state = initialState, action) {

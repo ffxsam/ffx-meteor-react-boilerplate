@@ -1,10 +1,10 @@
-import {Meteor} from 'meteor/meteor';
-import {ValidatedMethod} from 'meteor/mdg:validated-method';
+import { Meteor } from 'meteor/meteor';
+import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 export const someMethod = new ValidatedMethod({
   name: 'someMethod',
 
-  validate(arg1) {
+  validate(args) {
     const badThing = false;
 
     if (badThing) {
@@ -12,11 +12,11 @@ export const someMethod = new ValidatedMethod({
     }
   },
 
-  run(arg1) {
-  }
+  run(args) {
+  },
 });
 
 // Make stuff accessible in web console and meteor shell
 if (process.env.NODE_ENV === 'development') {
-  global.Methods = {someMethod};
+  global.Methods = { someMethod };
 }

@@ -22,6 +22,6 @@ export default createStore(
   reducers,
   compose(
     applyMiddleware(...middleware),
-    devtools
+    devtools,
   )
 )
