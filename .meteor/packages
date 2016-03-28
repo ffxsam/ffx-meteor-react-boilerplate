@@ -14,7 +14,7 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-react-meteor-data
+react-meteor-data@0.2.6-beta.16
 jagi:astronomy
 random
 static-html
