@@ -8,6 +8,7 @@
   "author": "myself",
   "private": true,
   "dependencies": {
+    "meteor-node-stubs": "^0.2.1",
     "react": "~0.14.7",
     "react-addons-pure-render-mixin": "~0.14.7",
     "react-autobind": "^1.0.6",
