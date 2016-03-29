@@ -12,5 +12,5 @@ export default MainLayout = ({ content }) => {
 }
 
 MainLayout.propTypes = {
-  content: PropTypes.func.isRequired
+  content: PropTypes.func.isRequired,
 };
