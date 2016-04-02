@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "My project",
   "scripts": {
-    "test": "mocha -w tests/.setup.js tests/**/*-test.js"
+    "test": "mocha -w tests/.setup.js tests/**/*-test.js",
+    "lint": "eslint ."
   },
   "author": "myself",
   "private": true,
@@ -25,6 +26,8 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "enzyme": "^2.2.0",
+    "eslint": "^2.6.0",
+    "eslint-plugin-react": "^4.2.3",
     "jsdom": "^8.2.0",
     "mocha": "^2.4.5",
     "react-addons-perf": "^0.14.7",
