@@ -5,5 +5,3 @@ export default Home = (props) => {
     <h1>Home.</h1>
   </div>
 }
-
-Home.propTypes = {}; // placeholder
