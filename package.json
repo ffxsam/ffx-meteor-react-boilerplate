@@ -13,14 +13,14 @@
   "private": true,
   "dependencies": {
     "meteor-node-stubs": "^0.2.3",
-    "react": "^15.0.1",
-    "react-addons-pure-render-mixin": "^15.0.1",
+    "react": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.0.2",
     "react-autobind": "^1.0.6",
-    "react-dom": "^15.0.1",
+    "react-dom": "^15.0.2",
     "react-mounter": "^1.2.0",
-    "react-redux": "^4.4.2",
+    "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
-    "redux": "^3.4.0",
+    "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1"
   },
@@ -29,11 +29,11 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "enzyme": "^2.2.0",
-    "eslint": "^2.7.0",
-    "eslint-plugin-react": "^4.3.0",
-    "jsdom": "^8.3.1",
+    "eslint": "^2.9.0",
+    "eslint-plugin-react": "^5.0.1",
+    "jsdom": "^8.4.1",
     "mocha": "^2.4.5",
-    "react-addons-perf": "^15.0.1",
-    "react-addons-test-utils": "^15.0.1"
+    "react-addons-perf": "^15.0.2",
+    "react-addons-test-utils": "^15.0.2"
   }
 }
