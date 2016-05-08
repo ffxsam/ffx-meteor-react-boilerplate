@@ -36,3 +36,11 @@ This _must_ be done before running `npm run scaffold`, since that script will de
 As I work on projects, I'll keep exploring the idea of putting all features into their own respective folders, and so this boilerplate will likely change as I discover better ways to structure things.
 
 If you have any questions, please create an issue in GitHub. Thanks!
+
+## Beer
+
+Oh, and if you found any of this helpful, feel free to buy me a beer! Bitcoin address follows.
+
+<img src="http://i.imgur.com/BDb98Ac.png" width="165" height="172">
+
+**Address: 1A7rfFcUngWXNvaAtVFrTu4fvdGqxuWKuA**
