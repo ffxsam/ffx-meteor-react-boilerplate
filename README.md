@@ -41,6 +41,6 @@ If you have any questions, please create an issue in GitHub. Thanks!
 
 Oh, and if you found any of this helpful, feel free to buy me a beer! Bitcoin address follows.
 
-<img src="http://i.imgur.com/BDb98Ac.png" width="165" height="172">
+<img src="http://i.imgur.com/H68h2je.jpg" width="139" height="138">
 
-**Address: 1A7rfFcUngWXNvaAtVFrTu4fvdGqxuWKuA**
+**Address: 1PFe5p4PFv8fhE9tdHyTkHamBivzySyYxD**
