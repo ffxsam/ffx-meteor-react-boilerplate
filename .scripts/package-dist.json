@@ -3,34 +3,35 @@
   "version": "0.1.0",
   "description": "My project",
   "scripts": {
-    "test": "mocha -w tests/.setup.js tests/**/*-test.js",
+    "test": "mocha tests/.setup.js tests/**/*-test.js",
+    "test-watch": "mocha -w tests/.setup.js tests/**/*-test.js",
     "lint": "eslint ."
   },
   "author": "myself",
   "private": true,
   "dependencies": {
     "meteor-node-stubs": "^0.2.3",
-    "react": "^15.0.1",
-    "react-addons-pure-render-mixin": "^15.0.1",
+    "react": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.0.2",
     "react-autobind": "^1.0.6",
-    "react-dom": "^15.0.1",
+    "react-dom": "^15.0.2",
     "react-mounter": "^1.2.0",
-    "react-redux": "^4.4.2",
+    "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
-    "redux": "^3.4.0",
+    "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "babel-preset-airbnb": "^1.1.1",
-    "babel-register": "^6.7.2",
+    "babel-preset-airbnb": "^2.0.0",
+    "babel-register": "^6.8.0",
     "chai": "^3.5.0",
-    "enzyme": "^2.2.0",
-    "eslint": "^2.7.0",
-    "eslint-plugin-react": "^4.3.0",
-    "jsdom": "^8.3.1",
+    "enzyme": "^2.3.0",
+    "eslint": "^2.10.2",
+    "eslint-plugin-react": "^5.1.1",
+    "jsdom": "^9.1.0",
     "mocha": "^2.4.5",
-    "react-addons-perf": "^15.0.1",
-    "react-addons-test-utils": "^15.0.1"
+    "react-addons-perf": "^15.0.2",
+    "react-addons-test-utils": "^15.0.2"
   }
 }
