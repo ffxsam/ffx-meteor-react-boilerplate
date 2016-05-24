@@ -4,7 +4,6 @@
   "description": "Meteor 1.3 + React boilerplate",
   "repository": "https://github.com/ffxsam/ffx-meteor-react-boilerplate",
   "scripts": {
-    "storybook": "start-storybook -p 9001",
     "preinstall": "echo \"Meteor boilerplate...ENGAGE!\"",
     "postinstall": "/bin/sh ./.scripts/postinstall.sh",
     "scaffold": "/bin/sh ./.scripts/scaffold.sh"
