@@ -4,9 +4,12 @@ import autoBind from 'react-autobind';
 
 const styles = {
   root: {
-    border: '1px dotted black',
     display: 'inline',
-    padding: 10,
+  },
+  button: {
+    background: '#eee',
+    border: '1px solid #ddd',
+    fontSize: 24,
   },
 };
 
@@ -22,7 +25,7 @@ class Thing extends Component {
 
   render() {
     return <div style={styles.root}>
-      <button onClick={this.showProps}>Dump props</button>
+      <button style={styles.button} onClick={this.showProps}>Dump props</button>
     </div>
   }
 }
