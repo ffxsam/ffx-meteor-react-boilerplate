@@ -12,14 +12,6 @@ cp .scripts/package-dist.json package.json
 rm -rf .git README.md .scripts
 meteor reset
 
-# Set up folder structure
-mkdir -p client/components \
-  features/SomeFeature/client/components \
-  features/SomeFeature/client/containers \
-  features/SomeFeature/lib \
-  features/SomeFeature/server
-touch server/publications.js
-
 echo
 echo "Done!"
 echo

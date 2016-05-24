@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { mount } from 'react-mounter';
-import MainLayout from './layouts/MainLayout';
-import Home from './pages/Home';
+import MainLayout from '../../common-ui/layouts/MainLayout';
+import Home from '../../common-ui/pages/Home';
 import Perf from 'react-addons-perf';
 
 if (process.env.NODE_ENV === 'development') {
