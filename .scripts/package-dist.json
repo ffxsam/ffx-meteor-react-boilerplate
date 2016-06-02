@@ -4,7 +4,6 @@
   "description": "My project",
   "scripts": {
     "lint": "eslint .; exit 0",
-    "storybook": "start-storybook -p 9001",
     "test": "mocha tests/.setup.js tests/**/*-test.js",
     "test-watch": "mocha -w tests/.setup.js tests/**/*-test.js"
   },
@@ -26,7 +25,6 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^1.27.0",
     "babel-preset-airbnb": "^2.0.0",
     "babel-register": "^6.9.0",
     "babel-root-slash-import": "^1.0.0",

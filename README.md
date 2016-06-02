@@ -23,16 +23,12 @@ Once you're ready to get started with your own project, make sure you're in the 
 
 which will remove the `.git` folder and this `README.md`, give you a proper working `package.json` file, and finally set up a starting folder structure.
 
-## React Storybook
-
-This boilerplate now comes with [React Storybook](https://github.com/kadirahq/react-storybook) all ready to go! Once your project is scaffolded, just run `npm run storybook` and jump right in. Check the React Storybook repo for more info.
-
 ## Exploring the Example Project
 
 The example project shows all the basics of React, Redux and Redux thunks working together with Meteor. It's a separate branch of the project, so just switch to the `example` branch to see it:
 
     $ git checkout example
-    
+
 This _must_ be done before running `npm run scaffold`, since that script will destroy the `.git` folder. Explanations can be found in the comments of the code, so check there. Your starting point should be `/client/routes.js`. From that point, comments will guide you through the rest of the application. Use `git checkout -f master` to get out of the example.
 
 ## Ideas That Graduated
