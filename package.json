@@ -1,6 +1,6 @@
 {
   "name": "ffx-meteor-react-boilerplate",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Meteor 1.3 + React boilerplate",
   "repository": "https://github.com/ffxsam/ffx-meteor-react-boilerplate",
   "scripts": {
