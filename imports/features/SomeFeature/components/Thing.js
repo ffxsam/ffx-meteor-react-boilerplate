@@ -1,22 +1,14 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
-import autoBind from 'react-autobind';
+import prebind from 'meteor-react-prebind';
 
-const styles = {
-  root: {
-    display: 'inline',
-  },
-  button: {
-    background: '#eee',
-    border: '1px solid #ddd',
-    fontSize: 24,
-  },
-};
+import { someAction } from '/imports/redux/actions';
 
 class Thing extends Component {
   constructor(props) {
     super(props);
-    autoBind(this);
+    prebind(this);
   }
 
   showProps() {
@@ -30,6 +22,21 @@ class Thing extends Component {
   }
 }
 
+const styles = {
+  root: {
+    display: 'inline',
+  },
+  button: {
+    background: '#eee',
+    border: '1px solid #ddd',
+    fontSize: 24,
+  },
+};
+
 Thing.propTypes = {};
 
 export default Radium(Thing)
+
+function doThis(thing: string): string {
+
+}

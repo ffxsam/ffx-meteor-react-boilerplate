@@ -3,19 +3,18 @@
   "version": "0.1.0",
   "description": "My project",
   "scripts": {
-    "lint": "eslint .; exit 0",
-    "test": "mocha tests/.setup.js tests/**/*-test.js",
-    "test-watch": "mocha -w tests/.setup.js tests/**/*-test.js"
+    "lint": "eslint .",
+    "test": "meteor test --port 3100 --driver-package practicalmeteor:mocha"
   },
   "author": "myself",
   "private": true,
   "dependencies": {
     "immutable": "^3.8.1",
     "meteor-node-stubs": "^0.2.3",
+    "meteor-react-prebind": "^1.0.2",
     "radium": "^0.17.1",
     "react": "^15.1.0",
     "react-addons-pure-render-mixin": "^15.1.0",
-    "react-autobind": "^1.0.6",
     "react-dom": "^15.1.0",
     "react-mounter": "^1.2.0",
     "react-redux": "^4.4.5",
@@ -25,16 +24,13 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "babel-preset-airbnb": "^2.0.0",
-    "babel-register": "^6.9.0",
-    "babel-root-slash-import": "^1.0.0",
     "chai": "^3.5.0",
     "enzyme": "^2.3.0",
-    "eslint": "^2.10.2",
-    "eslint-plugin-react": "^5.1.1",
-    "jsdom": "^9.2.0",
-    "mocha": "^2.5.2",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "flow-bin": "^0.27.0",
     "react-addons-perf": "^15.1.0",
-    "react-addons-test-utils": "^15.1.0"
+    "react-addons-test-utils": "^15.1.0",
+    "sinon": "^1.17.4"
   }
 }
