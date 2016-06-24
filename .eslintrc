@@ -5,6 +5,7 @@
     "es6": true
   },
   "extends": "eslint:recommended",
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -13,6 +14,7 @@
     "sourceType": "module"
   },
   "plugins": [
+    "flowtype",
     "react"
   ],
   "rules": {
@@ -100,6 +102,20 @@
     // React
     "react/jsx-no-duplicate-props": 2,
     "react/no-direct-mutation-state": 2,
-    "react/no-is-mounted": 2
+    "react/no-is-mounted": 2,
+
+    // Flow
+    "flowtype/require-parameter-type": 1,
+    "flowtype/require-return-type": [1, "always", {
+      "annotateUndefined": "never"
+    }],
+    "flowtype/space-after-type-colon": [1, "always"],
+    "flowtype/space-before-type-colon": [1, "never"],
+    "flowtype/type-id-match": [1, "^([A-Z][a-z0-9]+)+Type$"]
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   }
 }

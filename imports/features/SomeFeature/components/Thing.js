@@ -1,4 +1,3 @@
-// @flow
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 import prebind from 'meteor-react-prebind';
@@ -36,7 +35,3 @@ const styles = {
 Thing.propTypes = {};
 
 export default Radium(Thing)
-
-function doThis(thing: string): string {
-
-}
