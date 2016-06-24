@@ -25,5 +25,5 @@ module.name_mapper='^meteor\/\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/pro
 .*/.meteor/local/build/main.js
 .*/.meteor/packages/.*
 
-# This package can give you a lot of flow errors, better ignore it
-.*/node_modules/fbjs/.*
+# Ignore node_modules
+.*/node_modules/.*
