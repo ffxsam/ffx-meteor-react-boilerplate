@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
 import store from '/imports/redux/store';
-
-injectTapEventPlugin();
 
 export default MainLayout = ({ content }) => {
   return <Provider store={store}>
