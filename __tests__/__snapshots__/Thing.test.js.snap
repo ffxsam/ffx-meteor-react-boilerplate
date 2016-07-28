@@ -1,0 +1,22 @@
+exports[`test whoa 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "display": "inline"
+    }
+  }>
+  <button
+    data-radium={true}
+    onClick={[Function anonymous]}
+    style={
+      Object {
+        "background": "#eee",
+        "border": "1px solid #ddd",
+        "fontSize": 24
+      }
+    }>
+    Dump props
+  </button>
+</div>
+`;

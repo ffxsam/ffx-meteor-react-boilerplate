@@ -1,18 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
-import prebind from 'meteor-react-prebind';
-
-import { someAction } from '/imports/redux/actions';
 
 class Thing extends Component {
-  constructor(props) {
-    super(props);
-    prebind(this);
-  }
-
-  showProps() {
+  showProps = () => {
     console.log(this.props);
-  }
+  };
 
   render() {
     return <div style={styles.root}>

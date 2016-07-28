@@ -24,6 +24,3 @@ module.name_mapper='^meteor\/\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/pro
 .*/.meteor/local/build/programs/web.browser/app/.*
 .*/.meteor/local/build/main.js
 .*/.meteor/packages/.*
-
-# Ignore node_modules
-.*/node_modules/.*

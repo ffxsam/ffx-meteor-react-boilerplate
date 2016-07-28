@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
-import ThingContainer from
-  '/imports/features/SomeFeature/containers/ThingContainer';
+import React from 'react';
+import Thing from '/imports/features/SomeFeature/components/Thing';
 
-export default Home = (props) => {
+const Home = () => {
   return <div>
     <h1>Home.</h1>
     <div>
-      <ThingContainer/>
+      <Thing />
     </div>
   </div>
-}
+};
+
+export default Home

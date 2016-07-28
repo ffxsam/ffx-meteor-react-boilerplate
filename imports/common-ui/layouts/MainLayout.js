@@ -1,13 +1,18 @@
 import React, { PropTypes } from 'react';
-import { Provider } from 'react-redux';
-import store from '/imports/redux/store';
+// import { Provider } from 'react-redux';
+// import store from '/imports/redux/store';
 
-export default MainLayout = ({ content }) => {
-  return <Provider store={store}>
+const MainLayout = ({ content }) => {
+  // return <Provider store={store}>
+  //   {content()}
+  // </Provider>
+  return <div>
     {content()}
-  </Provider>
-}
+  </div>
+};
 
 MainLayout.propTypes = {
   content: PropTypes.func.isRequired,
 };
+
+export default MainLayout

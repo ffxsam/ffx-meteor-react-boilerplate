@@ -1,5 +1,5 @@
 import React from 'react';
-import { action, storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@kadira/storybook';
 import { styles } from './shared';
 
 storiesOf('common.button', module)
