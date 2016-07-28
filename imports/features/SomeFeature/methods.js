@@ -6,12 +6,13 @@ export const someMethod = new ValidatedMethod({
 
   validate(args) {
     check(args, {
-      data: Object,
+      name: String,
     });
   },
 
-  run({ data }) {
+  run({ name }) {
     console.log('Executing on client?', this.isSimulation);
-    console.log('Got data:', data);
+    console.log('Got name:', name);
+    return name;
   },
 });
