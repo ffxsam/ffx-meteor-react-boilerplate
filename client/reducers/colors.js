@@ -87,18 +87,25 @@ export default function (state = initialState, action) {
         return {
           ...state,
           Rvalue: limitRgbVal(state.Rvalue + action.changeBy),
+          errorReason: null,
         };
       } else if (action.colorName === 'G') {
         return {
           ...state,
           Gvalue: limitRgbVal(state.Gvalue + action.changeBy),
+          errorReason: null,
         };
       } else if (action.colorName === 'B') {
         return {
           ...state,
           Bvalue: limitRgbVal(state.Bvalue + action.changeBy),
+          errorReason: null,
         };
       }
+
+      // We set the errorReason to `null` in order to clear out any error that
+      // might have occured before since our current actions are successful
+      // ones.
 
       // In the weird scenario you pass an invalid color value:
       return state; // return the state, unmodified
@@ -165,6 +172,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         ...action.color,
+        errorReason: null,
       };
 
     case actions.COLOR_SAVE_SUCCEEDED:
