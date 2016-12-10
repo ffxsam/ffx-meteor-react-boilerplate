@@ -4,3 +4,7 @@ npm-debug.log
 
 # WebStorm
 .idea
+
+# Yarn
+yarn.lock
+.yarnclean
