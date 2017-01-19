@@ -13,13 +13,13 @@ The goal of this boilerplate is twofold:
 
 Clone this repository, then run:
 
-    $ npm install
+    $ meteor npm install
 
 This will install NPM packages and update the Meteor packages used in the boilerplate.
 
 Once you're ready to get started with your own project, make sure you're in the master branch and run:
 
-    $ npm run scaffold
+    $ meteor npm run scaffold
 
 which will remove the `.git` folder and this `README.md`, give you a proper working `package.json` file, and finally set up a starting folder structure.
 
@@ -29,7 +29,7 @@ The example project shows all the basics of React, Redux and Redux thunks workin
 
     $ git checkout example
 
-This _must_ be done before running `npm run scaffold`, since that script will destroy the `.git` folder. Explanations can be found in the comments of the code, so check there. Your starting point should be `/client/routes.js`. From that point, comments will guide you through the rest of the application. Use `git checkout -f master` to get out of the example.
+This _must_ be done before running `meteor npm run scaffold`, since that script will destroy the `.git` folder. Explanations can be found in the comments of the code, so check there. Your starting point should be `/client/routes.js`. From that point, comments will guide you through the rest of the application. Use `git checkout -f master` to get out of the example.
 
 ## Ideas That Graduated
 ### `features` folder

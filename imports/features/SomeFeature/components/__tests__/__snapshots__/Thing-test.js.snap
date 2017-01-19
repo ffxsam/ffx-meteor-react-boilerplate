@@ -1,0 +1,40 @@
+exports[`test Just takes a snapshot 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "display": "inline",
+    }
+  }>
+  <div
+    data-radium={true}>
+    <button
+      data-radium={true}
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#eee",
+          "border": "1px solid #ddd",
+          "fontSize": 24,
+        }
+      }>
+      Dump props
+    </button>
+  </div>
+  <div
+    data-radium={true}>
+    <button
+      data-radium={true}
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#eee",
+          "border": "1px solid #ddd",
+          "fontSize": 24,
+        }
+      }>
+      Call Meteor method
+    </button>
+  </div>
+</div>
+`;
