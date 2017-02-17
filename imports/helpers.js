@@ -4,10 +4,10 @@ export function globalizeData(mongoCollection) {
   }
 }
 
-export function promisifyMethod(method: Object) {
-  return (...args: Array<any>) => {
-    return new Promise((resolve: Function, reject: Function) => {
-      method.call(...args, (error: Object, result: any) => {
+export function promisifyMethod(method) {
+  return (...args) => {
+    return new Promise((resolve, reject) => {
+      method.call(...args, (error, result) => {
         if (!error) resolve(result);
         else reject(error);
       });
