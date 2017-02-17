@@ -5,6 +5,7 @@
     "stage-1"
   ],
   "plugins": [
-    "babel-root-slash-import"
+    "babel-root-slash-import",
+    "transform-decorators-legacy"
   ]
 }
