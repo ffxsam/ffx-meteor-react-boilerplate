@@ -1,16 +1,12 @@
 import { Mongo } from 'meteor/mongo';
-import { Class } from 'meteor/jagi:astronomy';
+import SimpleSchema from 'simpl-schema';
 
 import { globalizeData } from '../helpers';
 
 export const Entries = new Mongo.Collection('entries');
 
-export const Entry = Class.create({
-  name: 'Entry',
-  collection: Entries,
-  fields: {
-    name: String,
-  },
+Entries.schema = new SimpleSchema({
+  name: String,
 });
 
-globalizeData({ Entries }, { Entry });
+globalizeData({ Entries });

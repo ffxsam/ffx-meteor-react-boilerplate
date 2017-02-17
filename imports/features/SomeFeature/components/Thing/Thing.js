@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
+@Radium
 class Thing extends Component {
-  callMethod = () => {
-    this.props.someMethod({ name: 'Unknown' }, (error, result) => {
+  callMethod = async () => {
+    try {
+      const result = await this.props.someMethod({ name: 'Unknown' });
       console.log(result);
-    });
+    } catch (e) {
+      console.error('error!', e);
+    }
   };
 
   showProps = () => {
@@ -17,7 +21,8 @@ class Thing extends Component {
       <div>
         <button
           style={styles.button}
-          onClick={this.showProps}>
+          onClick={this.showProps}
+        >
           Dump props
         </button>
       </div>
@@ -46,4 +51,4 @@ const styles = {
 
 Thing.propTypes = {};
 
-export default Radium(Thing)
+export default Thing;

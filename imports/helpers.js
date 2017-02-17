@@ -1,7 +1,17 @@
-export function globalizeData(mongoCollection, astroClass) {
+export function globalizeData(mongoCollection) {
   if (process.env.NODE_ENV === 'development') {
     global.Collections = Object.assign({}, global.Collections, mongoCollection);
-    global.Models = Object.assign({}, global.Models, astroClass);
+  }
+}
+
+export function promisifyMethod(method: Object) {
+  return (...args: Array<any>) => {
+    return new Promise((resolve: Function, reject: Function) => {
+      method.call(...args, (error: Object, result: any) => {
+        if (!error) resolve(result);
+        else reject(error);
+      });
+    });
   }
 }
 

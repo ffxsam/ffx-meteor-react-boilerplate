@@ -15,4 +15,4 @@ MainLayout.propTypes = {
   content: PropTypes.func.isRequired,
 };
 
-export default MainLayout
+export default MainLayout;
