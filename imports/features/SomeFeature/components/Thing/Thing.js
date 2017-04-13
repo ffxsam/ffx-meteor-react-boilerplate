@@ -4,7 +4,7 @@ import Radium from 'radium';
 @Radium class Thing extends Component {
   callMethod = async () => {
     try {
-      const result = await this.props.someMethod({ name: 'Unknown' });
+      const result = await this.props.someMethod.call({ name: 'Unknown' });
       console.log(result);
     } catch (e) {
       console.error('error!', e);
