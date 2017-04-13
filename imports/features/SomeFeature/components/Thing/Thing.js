@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-@Radium
-class Thing extends Component {
+@Radium class Thing extends Component {
   callMethod = async () => {
     try {
       const result = await this.props.someMethod({ name: 'Unknown' });
@@ -17,24 +16,20 @@ class Thing extends Component {
   };
 
   render() {
-    return <div style={styles.root}>
-      <div>
-        <button
-          style={styles.button}
-          onClick={this.showProps}
-        >
-          Dump props
-        </button>
+    return (
+      <div style={styles.root}>
+        <div>
+          <button style={styles.button} onClick={this.showProps}>
+            Dump props
+          </button>
+        </div>
+        <div>
+          <button style={styles.button} onClick={this.callMethod}>
+            Call Meteor method
+          </button>
+        </div>
       </div>
-      <div>
-        <button
-          style={styles.button}
-          onClick={this.callMethod}
-        >
-          Call Meteor method
-        </button>
-      </div>
-    </div>
+    );
   }
 }
 

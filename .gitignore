@@ -6,5 +6,4 @@ npm-debug.log
 .idea
 
 # Yarn
-yarn.lock
 .yarnclean

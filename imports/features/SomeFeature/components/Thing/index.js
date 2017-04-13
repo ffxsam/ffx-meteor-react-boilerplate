@@ -1,2 +1,2 @@
 import ThingContainer from './ThingContainer';
-export default ThingContainer
+export default ThingContainer;

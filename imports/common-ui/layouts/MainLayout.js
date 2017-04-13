@@ -6,9 +6,11 @@ const MainLayout = ({ content }) => {
   // return <Provider store={store}>
   //   {content()}
   // </Provider>
-  return <div>
-    {content()}
-  </div>
+  return (
+    <div>
+      {content()}
+    </div>
+  );
 };
 
 MainLayout.propTypes = {

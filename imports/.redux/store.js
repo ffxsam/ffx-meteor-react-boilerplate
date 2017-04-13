@@ -20,8 +20,5 @@ if (process.env.NODE_ENV === 'development') {
 
 export default createStore(
   reducers,
-  compose(
-    applyMiddleware(...middleware),
-    devtools
-  )
-)
+  compose(applyMiddleware(...middleware), devtools),
+);

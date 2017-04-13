@@ -1,3 +1,3 @@
-Meteor.startup(function () {
+Meteor.startup(function() {
   // DB pre-population here
 });
