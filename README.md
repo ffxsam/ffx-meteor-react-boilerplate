@@ -4,8 +4,6 @@
 
 ***This project is no longer maintained, and will no longer be updated.***
 
-(and sample project)
-
 ## Purpose
 
 The goal of this boilerplate is twofold:
