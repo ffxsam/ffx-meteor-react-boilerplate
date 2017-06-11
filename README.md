@@ -1,4 +1,8 @@
-# Meteor 1.3 + React Boilerplate
+# Meteor 1.4 + React Boilerplate
+
+## NOTE
+
+***This project is no longer maintained, and will no longer be updated.***
 
 (and sample project)
 
